@@ -340,13 +340,13 @@
           <button class="nav-item" data-view="cases"><span>🧩</span> Casos y acciones</button>
           <button class="nav-item" data-view="applications"><span>🔗</span> Aplicaciones</button>
         </nav>
-        <div class="sidebar-note"><span class="pulse"></span><div><strong>Datos guardados en Firebase</strong><small id="sync-time">Esperando sincronización</small></div></div>
+        <div class="sidebar-note"><span class="pulse"></span><div><strong>Datos locales de demostración</strong><small id="sync-time">Esperando sincronización</small></div></div>
       </aside>
 
       <main class="main">
         <header class="topbar">
           <div><p class="eyebrow">CONTROL DE SALES CENTER</p><small class="app-purpose">Gestión operativa de demostración</small><h1 id="page-title">Centro</h1></div>
-          <div class="top-actions"><span class="sync-dot"></span><span class="sync-label" id="sync-label">Firebase · esperando acceso</span><span class="sync-time" id="top-sync-time" aria-live="polite"></span><button class="refresh-button" id="download-workbook" title="Descargar una copia actualizada en Excel">⇩ Descargar Excel</button><button class="refresh-button" data-refresh title="Comprobar y actualizar los datos">↻ Actualizar</button><div class="avatar">AR</div></div>
+          <div class="top-actions"><span class="sync-dot"></span><span class="sync-label" id="sync-label">Modo demostración · acceso protegido</span><span class="sync-time" id="top-sync-time" aria-live="polite"></span><button class="refresh-button" id="download-workbook" title="Descargar una copia actualizada en Excel">⇩ Descargar Excel</button><button class="refresh-button" data-refresh title="Comprobar y actualizar los datos">↻ Actualizar</button><div class="avatar">AR</div></div>
         </header>
         <div id="data-alert" class="data-alert" role="status" aria-live="polite" hidden></div>
 
@@ -354,7 +354,7 @@
           <div class="hero-row"><div><h2>Control del centro</h2><p>Revisiones, mantenimiento y acciones abiertas del Sales Center.</p></div><button class="primary" data-new-center onclick="openNewCenterEditor()">＋ Nueva acción</button></div>
           <div class="metric-grid" id="center-metrics"></div>
           <div class="toolbar"><div class="search"><span>⌕</span><input id="center-search" placeholder="Buscar actividad, categoría, responsable, proveedor o comentarios" /></div><select id="center-category"><option value="all">Todas las categorías</option></select><select id="center-status" aria-label="Estado"><option value="all">Estado: Todos</option><option value="open">Estado: Pendientes</option><option value="process">Estado: En curso</option><option value="done">Estado: Realizadas</option></select><select id="center-date-filter" onchange="setCenterDateFilter(this.value)" aria-label="Fecha"><option value="all">Fecha: Todas</option><option value="overdue">Fecha: Vencidas</option><option value="soon">Fecha: Próximas</option><option value="nodate">Fecha: Sin fecha</option></select><select id="center-evidence-filter" aria-label="Evidencia"><option value="all">Evidencia: Todas</option><option value="with">Con evidencia</option><option value="without">Sin evidencia</option></select><select id="center-sort" hidden aria-hidden="true"><option value="next">Próxima revisión</option></select><button type="button" class="secondary filter-reset" onclick="resetCenterFilters()">Limpiar filtros</button></div>
-          <div class="panel"><div class="panel-heading"><div><h3>Registro de actividades</h3><p>Fuente: Firebase</p></div><span class="count-pill" id="center-count"></span></div><div class="table-wrap" tabindex="0" role="region" aria-label="Tabla de registros. Desplaza lateralmente para ver todas las columnas."><table><thead><tr><th>Actividad</th><th>Categoría</th><th>Periodicidad</th><th>Ejecutor</th><th>Última revisión</th><th>Próxima revisión</th><th>Responsable del seguimiento</th><th>Estado</th><th>Notas / siguiente acción</th><th>Acciones / evidencia</th></tr></thead><tbody id="center-table"></tbody></table></div></div>
+          <div class="panel"><div class="panel-heading"><div><h3>Registro de actividades</h3><p>Fuente: datos de demostración</p></div><span class="count-pill" id="center-count"></span></div><div class="table-wrap" tabindex="0" role="region" aria-label="Tabla de registros. Desplaza lateralmente para ver todas las columnas."><table><thead><tr><th>Actividad</th><th>Categoría</th><th>Periodicidad</th><th>Ejecutor</th><th>Última revisión</th><th>Próxima revisión</th><th>Responsable del seguimiento</th><th>Estado</th><th>Notas / siguiente acción</th><th>Acciones / evidencia</th></tr></thead><tbody id="center-table"></tbody></table></div></div>
         </section>
 
         <section id="templates-view" class="view">

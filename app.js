@@ -61,12 +61,14 @@ let firebaseDb=null,firebaseAuth=null,firebaseUser=null,firebaseWriteQueue=Promi
 
 const DEMO_DOCUMENT={
  center:[
-  {id:'demo-center-1',activity:'Revisión mensual del inventario',category:'Operaciones',frequency:'Mensual',last:'01/09/2026',next:'01/10/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Comprobar diferencias y cerrar el registro.',status:'open'},
-  {id:'demo-center-2',activity:'Mantenimiento de la puerta de acceso',category:'Mantenimiento',frequency:'Anual',last:'15/02/2026',next:'15/02/2027',owner:'Mantenimiento',type:'EXTERNO',provider:'Proveedor Demo',action:'Solicitar fecha de revisión.',status:'process'},
-  {id:'demo-center-3',activity:'Comprobación de señalización de evacuación',category:'Seguridad',frequency:'Trimestral',last:'20/09/2026',next:'20/12/2026',owner:'Equipo del centro',type:'INTERNO',provider:'',action:'Revisar carteles de salida y reponer los deteriorados.',status:'done'},
-  {id:'demo-center-4',activity:'Revisión de extintores de muestra',category:'Seguridad',frequency:'Anual',last:'12/01/2026',next:'12/01/2027',owner:'Proveedor Demo',type:'EXTERNO',provider:'Servicios Técnicos Demo',action:'Confirmar visita anual.',status:'open'},
-  {id:'demo-center-5',activity:'Checklist de apertura del almacén',category:'Operaciones',frequency:'Diario',last:'14/10/2026',next:'15/10/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Completar la comprobación de apertura.',status:'process'},
-  {id:'demo-center-6',activity:'Prueba del kit de derrames',category:'Medio ambiente',frequency:'Semestral',last:'05/07/2026',next:'05/01/2027',owner:'Equipo del centro',type:'INTERNO',provider:'',action:'Verificar absorbentes y registrar reposición.',status:'done'}
+  {id:'demo-center-1',activity:'Revisión mensual del inventario',category:'Operaciones',frequency:'Mensual',last:'01/09/2026',next:'01/10/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Hay una diferencia en consumibles; revisar el armario 2 y cerrar el registro.',status:'open'},
+  {id:'demo-center-2',activity:'Mantenimiento de la puerta de acceso',category:'Mantenimiento',frequency:'Anual',last:'15/02/2026',next:'15/02/2027',owner:'Mantenimiento',type:'EXTERNO',provider:'Mantenimiento Norte Demo',action:'Visita solicitada para comprobar cierre, sensor y parada de emergencia.',status:'process',evidence:{name:'Parte de mantenimiento de ejemplo',url:'https://example.com/demo/evidencia-puerta'}},
+  {id:'demo-center-3',activity:'Comprobación de señalización de evacuación',category:'Seguridad',frequency:'Trimestral',last:'20/09/2026',next:'20/12/2026',owner:'Equipo del centro',type:'INTERNO',provider:'',action:'Revisión completada; se han sustituido dos carteles de salida.',status:'done',evidence:{name:'Checklist de señalización ficticio',url:'https://example.com/demo/checklist-senalizacion'}},
+  {id:'demo-center-4',activity:'Revisión anual de equipos contra incendios',category:'Seguridad',frequency:'Anual',last:'12/01/2026',next:'12/01/2027',owner:'Responsable del centro',type:'EXTERNO',provider:'Servicios Técnicos Demo',action:'Confirmar la fecha de visita y guardar el certificado cuando llegue.',status:'open'},
+  {id:'demo-center-5',activity:'Checklist de apertura del almacén',category:'Operaciones',frequency:'Diario',last:'14/10/2026',next:'15/10/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Queda pendiente validar la presión de la línea antes de abrir.',status:'process'},
+  {id:'demo-center-6',activity:'Prueba del kit de derrames',category:'Medio ambiente',frequency:'Semestral',last:'05/07/2026',next:'05/01/2027',owner:'Equipo del centro',type:'INTERNO',provider:'',action:'Material completo y ubicación señalizada.',status:'done'},
+  {id:'demo-center-7',activity:'Revisión de documentación de contratas',category:'Coordinación',frequency:'Mensual',last:'30/09/2026',next:'30/10/2026',owner:'Administración',type:'EXTERNO',provider:'Gestión Preventiva Demo',action:'Solicitar la documentación que caduca este mes.',status:'open'},
+  {id:'demo-center-8',activity:'Simulacro de evacuación de ejemplo',category:'Emergencias',frequency:'Anual',last:'18/03/2026',next:'18/03/2027',owner:'Equipo de emergencia',type:'INTERNO',provider:'',action:'Resultado registrado; próxima práctica prevista para marzo.',status:'done',evidence:{name:'Acta de simulacro ficticia',url:'https://example.com/demo/acta-simulacro'}}
  ],
  pending:[
   {id:'demo-pending-1',text:'Confirmar fecha de entrega del material',person:'Cliente Demo Norte',priority:'ALTA',status:'PENDIENTE',date:'05/10/2026',updated:'02/10/2026',comments:'Llamar después de las 10:00.'},
@@ -110,9 +112,9 @@ const DEMO_DOCUMENT={
   {id:'demo-procedure-3',number:'DEMO-003',name:'Actuación ante derrame accidental',version:'1.0',author:'Equipo Demo',status:'Vigente',notes:'Ejemplo de procedimiento operativo.',url:'https://example.com/demo/procedimiento-derrames'},
   {id:'demo-procedure-4',number:'DEMO-004',name:'Coordinación de contratas',version:'0.9',author:'Equipo Demo',status:'Pendiente',notes:'Borrador ficticio para enseñar el flujo.',url:'https://example.com/demo/procedimiento-contratas'}
  ],
- lists:{category:['Operaciones','Mantenimiento','Mejora','Seguridad / cumplimiento','Medio ambiente'],owner:['Responsable del centro','Mantenimiento','Equipo del centro','Proveedor Demo'],provider:['Proveedor Demo','Servicios Técnicos Demo','Suministros Demo'],person:['Cliente Demo Norte','Equipo del centro','Lucía Ejemplo']},
- providerContacts:{'Proveedor Demo':[{id:'demo-contact-1',name:'Ana Ficticia',role:'Coordinación de servicios',phone:'600 000 001',email:'ana.demo@example.com'}],'Servicios Técnicos Demo':[{id:'demo-contact-2',name:'Carlos Ejemplo',role:'Técnico de referencia',phone:'600 000 002',email:'carlos.demo@example.com'}]},
- providerDirectory:[{name:'Proveedor Demo',supplierNumber:'SUP-001',description:'Proveedor ficticio para la demostración.'},{name:'Servicios Técnicos Demo',supplierNumber:'SUP-002',description:'Mantenimiento y revisiones de ejemplo.'},{name:'Suministros Demo',supplierNumber:'SUP-003',description:'Material y consumibles ficticios.'}],accessLogs:[]
+ lists:{category:['Operaciones','Mantenimiento','Seguridad','Emergencias','Coordinación','Medio ambiente'],owner:['Responsable del centro','Mantenimiento','Equipo del centro','Administración','Equipo de emergencia'],provider:['Mantenimiento Norte Demo','Servicios Técnicos Demo','Gestión Preventiva Demo','Suministros Demo'],person:['Cliente Demo Norte','Cliente Demo Sur','Equipo del centro','Lucía Ejemplo']},
+ providerContacts:{'Mantenimiento Norte Demo':[{id:'demo-contact-1',name:'Ana Ficticia',role:'Coordinación de servicios',phone:'600 000 001',email:'ana.demo@example.com'}],'Servicios Técnicos Demo':[{id:'demo-contact-2',name:'Carlos Ejemplo',role:'Técnico de referencia',phone:'600 000 002',email:'carlos.demo@example.com'}],'Gestión Preventiva Demo':[{id:'demo-contact-3',name:'Marta Ejemplo',role:'Coordinación documental',phone:'600 000 003',email:'marta.demo@example.com'}]},
+ providerDirectory:[{name:'Mantenimiento Norte Demo',supplierNumber:'SUP-001',description:'Mantenimiento preventivo y correctivo de ejemplo.'},{name:'Servicios Técnicos Demo',supplierNumber:'SUP-002',description:'Revisiones de seguridad ficticias.'},{name:'Gestión Preventiva Demo',supplierNumber:'SUP-003',description:'Coordinación documental de contratas.'},{name:'Suministros Demo',supplierNumber:'SUP-004',description:'Material y consumibles ficticios.'}],accessLogs:[]
 };
 function loadDemoData(){
  document.body.dataset.demo='true';
@@ -122,12 +124,13 @@ function loadDemoData(){
  const value=structuredClone(DEMO_DOCUMENT);appRevision='demo';appDocument=value;firebaseUser={email:'demo@example.com'};
  centerRows.splice(0,centerRows.length,...value.center);pendingRows.splice(0,pendingRows.length,...value.pending);clientRows.splice(0,clientRows.length,...value.clients);caseRows.splice(0,caseRows.length,...value.cases);applicationRows.splice(0,applicationRows.length,...value.applications);improvementRows.splice(0,improvementRows.length,...value.improvements);templateRows.splice(0,templateRows.length,...value.templates);workPermitRows.splice(0,workPermitRows.length,...(value.workPermits||[]));procedureRows.splice(0,procedureRows.length,...value.procedures);remoteKurroLists=structuredClone(value.lists);providerContactsByName={};providerDirectory=structuredClone(value.providerDirectory);directoryRows.splice(0,directoryRows.length);
  if($('sync-label'))$('sync-label').textContent='Vista de presentación · datos ficticios';
- if($('top-sync-time'))$('top-sync-time').textContent='Sin conexión a Firebase';
- if($('sync-time'))$('sync-time').textContent='Sin conexión a Firebase';
+ if($('top-sync-time'))$('top-sync-time').textContent='Datos locales de demostración';
+ if($('sync-time'))$('sync-time').textContent='Datos locales de demostración';
  renderCenter();renderPending();renderClients();
  try{refreshKurroPeopleOptions();refreshClientOptions();refreshKURROMetrics();renderCases();renderApplications();renderTemplates();renderWorkPermits();renderProcedures();renderProviders();renderImprovements();renderEconomicAnalysis();renderAccessLogs()}catch(error){console.warn('La demo se ha cargado con una vista parcial',error)}
  document.querySelectorAll('[data-new-center],[data-new-pending],[data-new-client],[data-new-case],[data-new-application],[data-new-improvement],[data-new-provider],[data-new-template],[data-new-work-permit],[data-new-procedure]').forEach(node=>node.remove());
  const account=$('firebase-auth-open');if(account)account.remove();
+ document.querySelectorAll('.demo-badge').forEach(node=>node.remove());
  const badge=document.createElement('span');badge.className='demo-badge';badge.textContent='Vista de presentación · datos ficticios';document.querySelector('.top-actions')?.prepend(badge);
 }
 
