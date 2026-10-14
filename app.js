@@ -73,7 +73,7 @@ const DEMO_DOCUMENT={
   {id:'demo-center-10',activity:'Seguimiento de indicadores de calidad de servicio',category:'Calidad',frequency:'Mensual',last:'01/10/2026',next:'01/11/2026',owner:'Equipo comercial',type:'INTERNO',provider:'',action:'Revisar indicadores y anotar las acciones de mejora.',status:'process'},
   {id:'demo-center-11',activity:'Revisión de controles ambientales del centro',category:'Medio ambiente',frequency:'Trimestral',last:'10/09/2026',next:'10/12/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Comprobar registros básicos y acciones pendientes.',status:'done'},
   {id:'demo-center-12',activity:'Control de accesos y seguridad del centro',category:'Seguridad del centro',frequency:'Mensual',last:'02/10/2026',next:'02/11/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Revisar autorizaciones y actualizar la información de acceso.',status:'open'}
- ]
+ ],
  pending:[
   {id:'demo-pending-1',text:'Confirmar fecha de entrega del pedido abierto',person:'Distribuciones Aurora Norte',priority:'ALTA',status:'PENDIENTE',date:'15/10/2026',updated:'13/10/2026',comments:'Esperando confirmación de logística.'},
   {id:'demo-pending-2',text:'Enviar documentación solicitada para el alta de cliente',person:'Logística Vega Sur',priority:'NORMAL',status:'EN PROCESO',date:'16/10/2026',updated:'13/10/2026',comments:'Falta adjuntar la ficha de datos.'},
