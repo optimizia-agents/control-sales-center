@@ -131,7 +131,6 @@ function loadDemoData(){
  document.querySelectorAll('[data-new-center],[data-new-pending],[data-new-client],[data-new-case],[data-new-application],[data-new-improvement],[data-new-provider],[data-new-template],[data-new-work-permit],[data-new-procedure]').forEach(node=>node.remove());
  const account=$('firebase-auth-open');if(account)account.remove();
  document.querySelectorAll('.demo-badge').forEach(node=>node.remove());
- const badge=document.createElement('span');badge.className='demo-badge';badge.textContent='Vista de presentación · datos ficticios';document.querySelector('.top-actions')?.prepend(badge);
 }
 
 const $ = id => document.getElementById(id);
