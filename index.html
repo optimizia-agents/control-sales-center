@@ -231,6 +231,9 @@
 /* Ajustes de coherencia visual confirmados */
 .app-shell .topbar>div:first-child{min-width:0}
 .app-shell .topbar .app-purpose{display:block;margin-top:2px;color:#60777e;font-size:12px;font-weight:650;line-height:1.4}
+      .demo-privacy-banner{margin:14px 28px 0;padding:10px 14px;border:1px solid #cfe2df;border-radius:9px;background:#eef8f4;color:#2b625e;font-size:12px;font-weight:650;line-height:1.45;display:flex;align-items:center;gap:8px}
+      .demo-privacy-banner strong{font-weight:800;letter-spacing:.03em}
+      @media(max-width:620px){.demo-privacy-banner{margin:10px 14px 0;font-size:11px}}
 .app-shell .toolbar .search{flex:1 1 100%}
 .app-shell .toolbar select{flex:1 1 0}
 .app-shell .toolbar .filter-reset{margin-left:0}
@@ -348,6 +351,7 @@
           <div><p class="eyebrow">CONTROL DE SALES CENTER</p><small class="app-purpose">Gestión operativa de demostración</small><h1 id="page-title">Centro</h1></div>
           <div class="top-actions"><span class="sync-dot"></span><span class="sync-label" id="sync-label">Modo demostración · acceso protegido</span><span class="sync-time" id="top-sync-time" aria-live="polite"></span><button class="refresh-button" id="download-workbook" title="Descargar una copia actualizada en Excel">⇩ Descargar Excel</button><button class="refresh-button" data-refresh title="Comprobar y actualizar los datos">↻ Actualizar</button><div class="avatar">SC</div></div>
         </header>
+        <div class="demo-privacy-banner" role="note"><span aria-hidden="true">ⓘ</span><span><strong>ENTORNO DE DEMOSTRACIÓN</strong> · Datos, nombres, contactos y enlaces ficticios. No contiene información corporativa.</span></div>
         <div id="data-alert" class="data-alert" role="status" aria-live="polite" hidden></div>
 
         <section id="center-view" class="view active-view">

@@ -230,7 +230,10 @@
 <style>.improvement-photo-editor-list{display:grid;gap:8px;margin:6px 0 8px}.improvement-photo-editor-row{display:flex;gap:8px;align-items:center}.improvement-photo-editor-row input{flex:1}.improvement-photo-remove{padding:8px 11px!important;white-space:nowrap}.improvement-date-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.improvement-date-row label{display:grid;gap:6px;color:#557078;font-size:13px;font-weight:700}.improvement-section-label{margin-top:4px;padding-top:12px;border-top:1px solid #e8efed;color:#557078;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.improvement-visible-toggle{display:flex!important;align-items:center;gap:8px!important;display:flex!important}.improvement-visible-toggle input{width:auto!important}.improvement-visible-toggle input:not(:checked)~*{display:none}@media(max-width:620px){.improvement-date-row{grid-template-columns:1fr 1fr}}</style><style>
 /* Ajustes de coherencia visual confirmados */
 .app-shell .topbar>div:first-child{min-width:0}
-.app-shell .topbar .app-purpose{display:block;margin-top:2px;color:#60777e;font-size:12px;font-weight:650;line-height:1.4}
+      .app-shell .topbar .app-purpose{display:block;margin-top:2px;color:#60777e;font-size:12px;font-weight:650;line-height:1.4}
+      .demo-privacy-banner{margin:14px 28px 0;padding:10px 14px;border:1px solid #cfe2df;border-radius:9px;background:#eef8f4;color:#2b625e;font-size:12px;font-weight:650;line-height:1.45;display:flex;align-items:center;gap:8px}
+      .demo-privacy-banner strong{font-weight:800;letter-spacing:.03em}
+      @media(max-width:620px){.demo-privacy-banner{margin:10px 14px 0;font-size:11px}}
 .app-shell .toolbar .search{flex:1 1 100%}
 .app-shell .toolbar select{flex:1 1 0}
 .app-shell .toolbar .filter-reset{margin-left:0}
@@ -348,6 +351,7 @@
           <div><p class="eyebrow">CONTROL DE SALES CENTER</p><small class="app-purpose">Gestión operativa de demostración</small><h1 id="page-title">Centro</h1></div>
           <div class="top-actions"><span class="sync-dot"></span><span class="sync-label" id="sync-label">Modo demostración · acceso protegido</span><span class="sync-time" id="top-sync-time" aria-live="polite"></span><button class="refresh-button" id="download-workbook" title="Descargar una copia actualizada en Excel">⇩ Descargar Excel</button><button class="refresh-button" data-refresh title="Comprobar y actualizar los datos">↻ Actualizar</button><div class="avatar">SC</div></div>
         </header>
+        <div class="demo-privacy-banner" role="note"><span aria-hidden="true">ⓘ</span><span><strong>ENTORNO DE DEMOSTRACIÓN</strong> · Datos, nombres, contactos y enlaces ficticios. No contiene información corporativa.</span></div>
         <div id="data-alert" class="data-alert" role="status" aria-live="polite" hidden></div>
 
         <section id="center-view" class="view active-view">
