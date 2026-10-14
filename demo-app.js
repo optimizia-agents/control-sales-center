@@ -73,12 +73,20 @@ const DEMO_DOCUMENT={
   {id:'demo-center-10',activity:'Seguimiento de indicadores de calidad de servicio',category:'Calidad',frequency:'Mensual',last:'01/10/2026',next:'01/11/2026',owner:'Equipo comercial',type:'INTERNO',provider:'',action:'Revisar indicadores y anotar las acciones de mejora.',status:'process'},
   {id:'demo-center-11',activity:'Revisión de controles ambientales del centro',category:'Medio ambiente',frequency:'Trimestral',last:'10/09/2026',next:'10/12/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Comprobar registros básicos y acciones pendientes.',status:'done'},
   {id:'demo-center-12',activity:'Control de accesos y seguridad del centro',category:'Seguridad del centro',frequency:'Mensual',last:'02/10/2026',next:'02/11/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Revisar autorizaciones y actualizar la información de acceso.',status:'open'}
+  ,{id:'demo-center-13',activity:'Seguimiento de solicitudes comerciales abiertas',category:'Clientes y pedidos',frequency:'Semanal',last:'10/10/2026',next:'17/10/2026',owner:'Atención al cliente',type:'INTERNO',provider:'',action:'Revisar solicitudes pendientes y dejar registrada la próxima acción.',status:'process'}
+  ,{id:'demo-center-14',activity:'Control de documentación de proveedores',category:'Documentación',frequency:'Mensual',last:'03/10/2026',next:'03/11/2026',owner:'Administración comercial',type:'INTERNO',provider:'',action:'Comprobar que la documentación vigente está localizada y enlazada.',status:'open',evidence:{name:'Índice documental ficticio',url:'https://example.com/demo/indice-documental'}}
+  ,{id:'demo-center-15',activity:'Revisión de sala y medios para reuniones',category:'Instalaciones y equipos',frequency:'Mensual',last:'06/10/2026',next:'06/11/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Verificar que la sala está preparada para visitas y reuniones.',status:'done'}
+  ,{id:'demo-center-16',activity:'Registro de visita y acuerdos pendientes',category:'Visitas',frequency:'Según visita',last:'11/10/2026',next:'18/10/2026',owner:'Equipo comercial',type:'INTERNO',provider:'',action:'Guardar acuerdos, responsables y fechas de seguimiento de la visita.',status:'process'}
+  ,{id:'demo-center-17',activity:'Revisión de inducción para personal externo',category:'Emergencias y MAUs',frequency:'Según visita',last:'07/10/2026',next:'21/10/2026',owner:'Responsable del centro',type:'INTERNO',provider:'',action:'Confirmar que la información de acceso y seguridad se ha entregado.',status:'open'}
+  ,{id:'demo-center-18',activity:'Control de acciones correctivas de calidad',category:'Calidad',frequency:'Trimestral',last:'25/09/2026',next:'25/12/2026',owner:'Administración comercial',type:'INTERNO',provider:'',action:'Revisar acciones abiertas y documentar el cierre.',status:'done',evidence:{name:'Registro de acciones ficticio',url:'https://example.com/demo/acciones-calidad'}}
  ],
  pending:[
   {id:'demo-pending-1',text:'Confirmar fecha de entrega del pedido abierto',person:'Distribuciones Aurora Norte',priority:'ALTA',status:'PENDIENTE',date:'15/10/2026',updated:'13/10/2026',comments:'Esperando confirmación de logística.'},
   {id:'demo-pending-2',text:'Enviar documentación solicitada para el alta de cliente',person:'Logística Vega Sur',priority:'NORMAL',status:'EN PROCESO',date:'16/10/2026',updated:'13/10/2026',comments:'Falta adjuntar la ficha de datos.'},
   {id:'demo-pending-3',text:'Preparar agenda para la visita comercial',person:'Operaciones Centro Nexo',priority:'NORMAL',status:'PENDIENTE',date:'15/10/2026',updated:'12/10/2026',comments:'Revisar asistentes y temas pendientes.'},
   {id:'demo-pending-4',text:'Cerrar incidencia de transporte',person:'Transporte Atlas',priority:'ALTA',status:'REALIZADO',date:'10/10/2026',updated:'10/10/2026',comments:'Nueva fecha comunicada al cliente.'}
+  ,{id:'demo-pending-5',text:'Validar versión de la documentación de visita',person:'Equipo comercial',priority:'NORMAL',status:'EN PROCESO',date:'18/10/2026',updated:'13/10/2026',comments:'Pendiente de revisar el material de apoyo.'}
+  ,{id:'demo-pending-6',text:'Confirmar recepción de documentación del proveedor',person:'Servicios Documentales',priority:'NORMAL',status:'PENDIENTE',date:'20/10/2026',updated:'12/10/2026',comments:'Solicitada confirmación por el canal habitual.'}
  ],
  clients:[
   {id:'demo-client-1',clientNumber:'CLI-001',client:'Distribuciones Aurora Norte',contact:'Paula Martín',text:'Confirmar condiciones y fecha de entrega',priority:'ALTA',status:'PENDIENTE',date:'15/10/2026',updated:'13/10/2026',comments:'Pendiente de confirmación logística.'},
@@ -108,6 +116,9 @@ const DEMO_DOCUMENT={
   {id:'demo-permit-2',name:'Checklist de apertura y cierre del Sales Center',url:'https://example.com/demo/checklist-apertura'},
   {id:'demo-permit-3',name:'Permiso de acceso de personal externo',url:'https://example.com/demo/permiso-acceso'},
   {id:'demo-permit-4',name:'Checklist de documentación de contratas',url:'https://example.com/demo/checklist-documentacion'}
+  ,{id:'demo-permit-5',name:'Permiso de trabajo para intervención de mantenimiento',url:'https://example.com/demo/permiso-mantenimiento'}
+  ,{id:'demo-permit-6',name:'Checklist de acceso de visitas y proveedores',url:'https://example.com/demo/checklist-acceso'}
+  ,{id:'demo-permit-7',name:'Checklist de cierre de actuación',url:'https://example.com/demo/checklist-cierre'}
  ],
  procedures:[
   {id:'demo-procedure-1',number:'DEMO-001',name:'Gestión de pedidos y fechas comprometidas',version:'1.0',author:'Equipo comercial',status:'Vigente',notes:'Contenido ficticio para la demostración.',url:'https://example.com/demo/procedimiento-pedidos'},
