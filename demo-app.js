@@ -155,7 +155,7 @@ function loadDemoData(){
  renderCenter();renderPending();renderClients();
  try{refreshKurroPeopleOptions();refreshClientOptions();refreshKURROMetrics();renderCases();renderApplications();renderTemplates();renderWorkPermits();renderProcedures();renderProviders();renderImprovements();renderEconomicAnalysis();renderAccessLogs()}catch(error){console.warn('La demo se ha cargado con una vista parcial',error)}
  document.querySelectorAll('[data-new-center],[data-new-pending],[data-new-client],[data-new-case],[data-new-application],[data-new-improvement],[data-new-provider],[data-new-template],[data-new-work-permit],[data-new-procedure]').forEach(node=>node.remove());
- const account=$('firebase-auth-open');if(account)account.remove();
+ const account=$('firebase-auth-open');if(account){account.textContent='Cuenta';account.title='Abrir mi cuenta'}
  document.querySelectorAll('.demo-badge').forEach(node=>node.remove());
 }
 
@@ -532,16 +532,23 @@ async function finishFirebaseRest(){
   if(ok){closeFirebaseAuth(true);resetIdleTimer();await recordAccess();await ensureEvidenceTestLine();unlockPrivateApp()}
   else{firebaseUser=null;document.body.classList.add('auth-locked');firebaseAuthMessage('No se han podido cargar los datos de Firebase. Pulsa Entrar para reintentarlo.');openFirebaseAuth()}
 }
+function demoStoredPassword(){try{return localStorage.getItem('control_sales_center_demo_password')||'Demo123'}catch(error){return'Demo123'}}
+function submitDemoLogin(){const input=$('firebase-password');if(!input)return;const password=input.value||'';if(password!==demoStoredPassword()){firebaseAuthMessage('La contraseña no es correcta.');input.focus();return}firebaseAuthMessage('');loadDemoData();closeFirebaseAuth(true);resetIdleTimer()}
+function changeDemoPassword(){const current=$('firebase-password-current')?.value||'',next=$('firebase-password-change')?.value||'',confirmPassword=$('firebase-password-confirm')?.value||'';if(current!==demoStoredPassword()){firebaseAuthMessage('La contraseña actual no es correcta.');return}if(next.length<6){firebaseAuthMessage('La nueva contraseña debe tener al menos 6 caracteres.');return}if(next!==confirmPassword){firebaseAuthMessage('Las contraseñas no coinciden.');return}try{localStorage.setItem('control_sales_center_demo_password',next)}catch(error){}$('firebase-password-current').value='';$('firebase-password-change').value='';$('firebase-password-confirm').value='';firebaseAuthMessage('Contraseña actualizada correctamente.');showSyncToast('Contraseña actualizada correctamente')}
+function logoutDemo(){if(!confirm('¿Cerrar sesión en este equipo?'))return;firebaseUser=null;document.body.classList.add('auth-locked');window.location.reload()}
+function replaceDemoAuthAction(id,handler){const button=$(id);if(!button)return null;const fresh=button.cloneNode(true);button.replaceWith(fresh);fresh.addEventListener('click',handler);return fresh}
 function startDemoAuth(){
  document.body.classList.add('auth-locked');
- const fallback=$('firebase-auth-fallback');
- if(!fallback){loadDemoData();return}
- fallback.style.display='flex';
- fallback.innerHTML='<div class="auth-fallback-card"><p class="eyebrow">DEMO PRIVADA</p><h1>Entrar en Control de Sales Center</h1><p>Esta versión contiene únicamente datos ficticios para mostrar la herramienta.</p><label style="display:grid;gap:6px;margin:16px 0;color:#557078;font-size:13px;font-weight:700">Contraseña<input id="demo-password" type="password" autocomplete="off" placeholder="Contraseña de demo"></label><p id="demo-password-message" class="auth-fallback-status" aria-live="polite"></p><button type="button" id="demo-login-button">Entrar en la demo</button></div>';
- const submit=()=>{const input=$('demo-password'),message=$('demo-password-message');if(input?.value==='Demo123'){loadDemoData()}else if(message){message.textContent='La contraseña no es correcta.';input?.focus()}};
- $('demo-login-button')?.addEventListener('click',submit);
- $('demo-password')?.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();submit()}});
- $('demo-password')?.focus();
+ addFirebaseRestUI();
+ const modal=$('firebase-auth');
+ if(!modal){loadDemoData();return}
+ replaceDemoAuthAction('firebase-auth-login',submitDemoLogin);
+ replaceDemoAuthAction('firebase-password-change-button',changeDemoPassword);
+ replaceDemoAuthAction('firebase-auth-logout',logoutDemo);
+ const create=$('firebase-auth-create');if(create)create.hidden=true;
+ const login=$('firebase-auth-login');if(login)login.textContent='Entrar en la demo';
+ const description=$('firebase-auth-description');if(description)description.textContent='Esta versión contiene únicamente datos ficticios para mostrar la herramienta.';
+ openFirebaseAuth();
 }
 async function startFirebaseRest(){if(DEMO_MODE){startDemoAuth();return}addFirebaseRestUI();if(restRefreshToken){try{await refreshRestSession();await finishFirebaseRest();return}catch(error){clearRestSession()}}openFirebaseAuth()}
 
