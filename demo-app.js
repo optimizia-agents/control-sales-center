@@ -946,7 +946,7 @@ function mergeConcurrentDocument(latest,next){
  return merged;
 }
 async function writeDocument(collection,id,value,revision,retry=true){
- if(DEMO_MODE)throw new Error('La demo no permite guardar datos reales.');
+ if(DEMO_MODE)return {value:structuredClone(value),revision:'demo'};
  const condition=revision?{'currentDocument.updateTime':revision}:{'currentDocument.exists':'false'};
  const response=await restFetch(documentURL(collection,id)+'?'+new URLSearchParams(condition),{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:fireFields(value)})});
  if(!response.ok){
