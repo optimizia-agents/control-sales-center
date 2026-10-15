@@ -1068,7 +1068,7 @@ function allowEditorClose(id){
  modal.dataset.dirty='false';uncertainSave=null;uncertainIntent=null;return true;
 }
 for(const id of ['center-editor','pending-editor','client-editor','case-editor','application-editor','improvement-editor','provider-editor','template-editor','procedure-editor','firebase-auth']){
- const modal=$(id);for(const event of ['input','change'])modal.addEventListener(event,()=>{modal.dataset.dirty='true'});
+ const modal=$(id);if(!modal)continue;for(const event of ['input','change'])modal.addEventListener(event,()=>{modal.dataset.dirty='true'});
 }
 document.addEventListener('keydown',event=>{
  if(event.key!=='Escape')return;
