@@ -129,15 +129,7 @@ const DEMO_DOCUMENT={
   {id:'demo-template-15',name:'Checklist semanal de lavaojos',url:'https://example.com/demo/checklist-lavaojos'},
   {id:'demo-template-16',name:'Registro de pequeños aparatos',url:'https://example.com/demo/pequenos-aparatos'}
  ],
- workPermits:[
-  {id:'demo-permit-1',name:'Permiso de trabajo para intervención de mantenimiento',url:'https://example.com/demo/permiso-mantenimiento'},
-  {id:'demo-permit-2',name:'Checklist de documentación de empresas externas',url:'https://example.com/demo/checklist-documentacion-externa'},
-  {id:'demo-permit-3',name:'Permiso de acceso de personal externo',url:'https://example.com/demo/permiso-acceso-externo'},
-  {id:'demo-permit-4',name:'Checklist de acceso de visitas y proveedores',url:'https://example.com/demo/checklist-acceso'},
-  {id:'demo-permit-5',name:'Checklist de trabajos en solitario',url:'https://example.com/demo/checklist-trabajos-solitario'},
-  {id:'demo-permit-6',name:'Checklist de formación en permisos de trabajo',url:'https://example.com/demo/checklist-formacion-permisos'},
-  {id:'demo-permit-7',name:'Checklist de cierre de actuación',url:'https://example.com/demo/checklist-cierre'}
- ],
+ workPermits:[],
  procedures:[
   {id:'demo-procedure-1',number:'SC-001',name:'Plan de circulación del Sales Center',version:'1.0',author:'Responsable del centro',status:'Vigente',notes:'Documento operativo de circulación y señalización.',url:'https://example.com/demo/plan-circulacion'},
   {id:'demo-procedure-2',number:'SC-002',name:'Funcionamiento de oficinas del Sales Center',version:'1.0',author:'Responsable del centro',status:'Vigente',notes:'Organización de las tareas habituales de oficina.',url:'https://example.com/demo/funcionamiento-oficinas'},
