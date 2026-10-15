@@ -119,15 +119,23 @@ const DEMO_DOCUMENT={
   {id:'demo-template-5',name:'Registro de control de documentación',url:'https://example.com/demo/control-documentacion'},
   {id:'demo-template-6',name:'Registro de horas de trabajo de empresa externa',url:'https://example.com/demo/horas-externos'},
   {id:'demo-template-7',name:'Lista de comprobaciones de equipos',url:'https://example.com/demo/checklist-equipos'},
-  {id:'demo-template-8',name:'Registro de trabajos en solitario',url:'https://example.com/demo/trabajos-solitario'}
+  {id:'demo-template-8',name:'Registro de trabajos en solitario',url:'https://example.com/demo/trabajos-solitario'},
+  {id:'demo-template-9',name:'Registro de entrega de la evaluación de riesgos',url:'https://example.com/demo/entrega-evaluacion-riesgos'},
+  {id:'demo-template-10',name:'Ficha de asistencia formativa en aula',url:'https://example.com/demo/asistencia-formativa'},
+  {id:'demo-template-11',name:'Checklist anual de escaleras portátiles',url:'https://example.com/demo/checklist-escaleras'},
+  {id:'demo-template-12',name:'Gestión de botiquines',url:'https://example.com/demo/gestion-botiquines'},
+  {id:'demo-template-13',name:'Checklist de estanterías',url:'https://example.com/demo/checklist-estanterias'},
+  {id:'demo-template-14',name:'Registro de limpieza mensual',url:'https://example.com/demo/limpieza-mensual'},
+  {id:'demo-template-15',name:'Checklist semanal de lavaojos',url:'https://example.com/demo/checklist-lavaojos'},
+  {id:'demo-template-16',name:'Registro de pequeños aparatos',url:'https://example.com/demo/pequenos-aparatos'}
  ],
  workPermits:[
-  {id:'demo-permit-1',name:'Checklist de preparación de visita de cliente',url:'https://example.com/demo/checklist-visita'},
-  {id:'demo-permit-2',name:'Checklist de apertura y cierre del Sales Center',url:'https://example.com/demo/checklist-apertura'},
-  {id:'demo-permit-3',name:'Permiso de acceso de personal externo',url:'https://example.com/demo/permiso-acceso'},
-  {id:'demo-permit-4',name:'Checklist de documentación de contratas',url:'https://example.com/demo/checklist-documentacion'},
-  {id:'demo-permit-5',name:'Permiso de trabajo para intervención de mantenimiento',url:'https://example.com/demo/permiso-mantenimiento'},
-  {id:'demo-permit-6',name:'Checklist de acceso de visitas y proveedores',url:'https://example.com/demo/checklist-acceso'},
+  {id:'demo-permit-1',name:'Permiso de trabajo para intervención de mantenimiento',url:'https://example.com/demo/permiso-mantenimiento'},
+  {id:'demo-permit-2',name:'Checklist de documentación de empresas externas',url:'https://example.com/demo/checklist-documentacion-externa'},
+  {id:'demo-permit-3',name:'Permiso de acceso de personal externo',url:'https://example.com/demo/permiso-acceso-externo'},
+  {id:'demo-permit-4',name:'Checklist de acceso de visitas y proveedores',url:'https://example.com/demo/checklist-acceso'},
+  {id:'demo-permit-5',name:'Checklist de trabajos en solitario',url:'https://example.com/demo/checklist-trabajos-solitario'},
+  {id:'demo-permit-6',name:'Checklist de formación en permisos de trabajo',url:'https://example.com/demo/checklist-formacion-permisos'},
   {id:'demo-permit-7',name:'Checklist de cierre de actuación',url:'https://example.com/demo/checklist-cierre'}
  ],
  procedures:[
